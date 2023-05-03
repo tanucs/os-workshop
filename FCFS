@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int n,i;
+    int  at[n],bt[n],wt[n],tat[n];
+    cout<<"Enter the number of Processes";
+    cin>>n;
+    
+    for(i=0;i<n;i++){
+        cout<<"enter arrival time and burst time"<<i+1<<" :";
+        cin>>at[i]>>bt[i];
+    }
+    for(i=1;i<n;i++){
+        wt[i]=wt[i-1]+bt[i+1];
+    }
+    for(i=0;i<n;i++){
+        tat[i]=wt[i]+bt[i];
+    }
+   cout<<"process\tarrival\tburst\twaiting\tturnroumd\n";
+   for(i=0;i<n;i++){
+       cout<<i+1<<"\t"<<at[i]<<"\t\t"<<bt[i]<<"\t\t"<<wt[i]<<"\t\t"<<tat[i]<<endl;
+   }
+
+    return 0;
+}
